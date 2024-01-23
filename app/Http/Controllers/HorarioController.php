@@ -31,13 +31,13 @@ class HorarioController extends Controller
                 ->when(
                     array_key_exists('carrera', $validated),
                     function (Builder $query) use ($validated) {
-                        $query->where('carrera', 'like', '%' . $validated['carrera'] . '%');
+                        $query->where('carrera', 'like', '%'.$validated['carrera'].'%');
                     }
                 )
                 ->when(
                     array_key_exists('facultad', $validated),
                     function (Builder $query) use ($validated) {
-                        $query->where('facultad', 'like', '%' . $validated['facultad'] . '%');
+                        $query->where('facultad', 'like', '%'.$validated['facultad'].'%');
                     }
                 )
                 ->when(
@@ -46,7 +46,7 @@ class HorarioController extends Controller
                         $query->where('curso', $validated['curso']);
                     }
                 )
-                ->simplePaginate(15)
+                ->get()
         );
     }
 
@@ -56,6 +56,7 @@ class HorarioController extends Controller
     public function remove(Horario $horario): JsonResponse
     {
         $horario->delete();
+
         return response()->json(null, Response::HTTP_NO_CONTENT);
     }
 
@@ -86,6 +87,7 @@ class HorarioController extends Controller
     {
         $validated = $request->validated();
         $horario->update($validated);
+
         return new HorarioResponse($horario);
     }
 }

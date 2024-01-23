@@ -1,5 +1,35 @@
 # API Horario
 
+## Instalación
+
+Requiere PHP 8.2 o PHP 8.3 y Composer
+
+1. Clonar Repo
+2. Instalar dependencias
+
+```sh
+composer install
+```
+3. Crear variables de entorno
+
+```sh
+cp .env.example .env
+```
+
+4. Modificar credenciales de usuario en el fichero .env
+
+```ts
+USER_NAME=admin
+USER_EMAIL=admin@user.com
+USER_PASSWORD=password
+```
+
+5. Correr migraciones y poblar base de datos
+
+```sh
+php artisan migrate:fresh --seed
+```
+
 ## Endpoints
 
 ```typescript

@@ -1,4 +1,4 @@
-# API Horario
+# API Schedule
 
 ## Instalación
 
@@ -34,16 +34,16 @@ php artisan migrate:fresh --seed
 
 ```typescript
 // Filtrar horarios
-axios.get<Horario[]>('horarios', {params: HorarioFilter})
+axios.get<Schedule[]>('horarios', {params: ScheduleFilter})
 
 // Crear horario
-axios.post<Horario>('horarios', params: HorarioCreate)
+axios.post<Schedule>('horarios', params: ScheduleCreate)
 
 // Visualizar horario
-axios.get<Horario>(`horarios/${horarioId}`)
+axios.get<Schedule>(`horarios/${horarioId}`)
 
 // Actualizar horario
-axios.patch<Horario>(`horarios/${horarioId}`, params: HorarioUpdate)
+axios.patch<Schedule>(`horarios/${horarioId}`, params: ScheduleUpdate)
 
 // Eliminar horario
 axios.delete(`horarios/${horarioId}`)
@@ -58,28 +58,28 @@ axios.post<AuthResponse>(`users/login`, params: UserLogin)
 # Tipo de datos
 
 ```typescript
-interface Horario {
+interface Schedule {
     id: number
-    facultad: string
-    carrera: string
-    curso: number
+    faculty: string
+    career: string
+    year: number
     content: unknown
 }
 
 
-interface HorarioCreate {
-    facultad: string
-    carrera: string
-    curso: number
+interface ScheduleCreate {
+    faculty: string
+    career: string
+    year: number
     content: unknown
 }
 
-type HorarioUpdate = Partial<HorarioCreate>
+type ScheduleUpdate = Partial<ScheduleCreate>
 
-interface HorarioFilter {
-    facultad?: string
-    carrera?: string
-    curso?: number
+interface ScheduleFilter {
+    faculty?: string
+    career?: string
+    year?: number
 }
 
 interface User {

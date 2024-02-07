@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('horarios', function (Blueprint $table) {
             $table->id();
-            $table->string('facultad');
-            $table->string('carrera');
-            $table->unsignedTinyInteger('curso');
+            $table->string('faculty');
+            $table->string('career');
+            $table->unsignedTinyInteger('year');
             $table->json('content');
             $table->timestamps();
         });

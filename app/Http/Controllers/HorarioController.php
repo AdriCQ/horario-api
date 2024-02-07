@@ -29,21 +29,21 @@ class HorarioController extends Controller
         return HorarioResponse::collection(
             Horario::query()
                 ->when(
-                    array_key_exists('carrera', $validated),
+                    array_key_exists('career', $validated),
                     function (Builder $query) use ($validated) {
-                        $query->where('carrera', 'like', '%'.$validated['carrera'].'%');
+                        $query->where('career', 'like', '%'.$validated['career'].'%');
                     }
                 )
                 ->when(
-                    array_key_exists('facultad', $validated),
+                    array_key_exists('faculty', $validated),
                     function (Builder $query) use ($validated) {
-                        $query->where('facultad', 'like', '%'.$validated['facultad'].'%');
+                        $query->where('faculty', 'like', '%'.$validated['faculty'].'%');
                     }
                 )
                 ->when(
-                    array_key_exists('curso', $validated),
+                    array_key_exists('year', $validated),
                     function (Builder $query) use ($validated) {
-                        $query->where('curso', $validated['curso']);
+                        $query->where('year', $validated['year']);
                     }
                 )
                 ->get()

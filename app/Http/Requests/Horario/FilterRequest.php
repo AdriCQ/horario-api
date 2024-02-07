@@ -6,7 +6,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class FilterRequest extends FormRequest
 {
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -15,9 +14,9 @@ class FilterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'facultad' => ['sometimes', 'string'],
-            'carrera' => ['sometimes', 'string'],
-            'curso' => ['sometimes', 'integer'],
+            'faculty' => ['sometimes', 'string'],
+            'career' => ['sometimes', 'string'],
+            'year' => ['sometimes', 'integer'],
         ];
     }
 }
